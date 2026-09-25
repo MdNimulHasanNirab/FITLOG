@@ -19,12 +19,7 @@ export default function NotFound() {
           The workout or page you are looking for does not exist.
         </p>
 
-        <a
-          href="/"
-          className="inline-block mt-8 bg-lime-400 text-black px-6 py-3 rounded-full font-bold hover:bg-lime-300 transition"
-        >
-          Back to Workouts
-        </a>
+       
 
       </div>
     </main>
