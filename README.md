@@ -10,7 +10,7 @@ It allows users to browse workouts, view detailed workout information, add exerc
 
 Add your deployed Vercel link here:
 
-https://your-fitlog-project.vercel.app
+[https://your-fitlog-project.vercel.app](https://fitlong.netlify.app)
 
 ---
 
