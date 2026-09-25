@@ -1,296 +1,239 @@
-# FitLog — Workout Tracker
+# FitLog 🏋️
 
-FitLog is a modern workout tracking web application built with Next.js. It allows users to explore workouts, view detailed exercise information, create a daily workout plan, save workouts for later, and track their daily workout statistics.
+FitLog is a dark-themed workout library and personal workout planner built with Next.js.
+
+It allows users to browse workouts, view detailed workout information, add exercises to Today's Plan, save workouts for later, sort workouts, and manage their workout plan using LocalStorage.
+
+---
 
 ## 🚀 Live Demo
 
-Add your Vercel deployment URL here after deployment:
+Add your deployed Vercel link here:
 
-**Live Website:** `https://your-fitlog-project.vercel.app`
+https://your-fitlog-project.vercel.app
+
+---
 
 ## 📌 Project Overview
 
-FitLog provides a simple and responsive interface for discovering and organizing workouts.
+FitLog is designed as a simple and clean workout management application.
 
 Users can:
 
-* Browse available workouts
-* Sort workouts by duration, calories, or rating
-* View detailed information about each workout
-* Add workouts to today's plan
-* Save workouts for later
-* Remove workouts from their plan
-* Mark workouts as completed
-* Track total exercises, minutes, and calories
-* Receive toast notifications for important actions
+- Browse the workout library
+- View individual workout details
+- Add workouts to Today's Plan
+- Save workouts for later
+- Mark planned workouts as completed
+- Remove workouts from Today's Plan
+- Remove workouts from Saved
+- Sort workouts by duration, calories, or rating
+- View workout statistics
+- Use the application on mobile, tablet, and desktop
 
-The project uses LocalStorage to keep the user's plan and saved workouts available after refreshing the page.
+---
 
-## ✨ Features
+## 🛠️ Technologies Used
+
+- Next.js
+- React
+- JavaScript
+- Tailwind CSS
+- Next.js App Router
+- LocalStorage
+- REST API
+- ESLint
+
+---
+
+## ✨ Key Features
 
 ### 1. Workout Library
 
-* Fetches workout data from an external API
-* Displays workout images
-* Shows muscle groups
-* Shows equipment
-* Displays duration, calories, and rating
-* Responsive workout card layout
+Users can browse all available workouts from the FitLog API.
+
+Each workout card displays:
+
+- Workout image
+- Muscle group/category
+- Workout name
+- Equipment
+- Duration
+- Calories
+- Rating
+
+---
 
 ### 2. Workout Details
 
-Each workout has its own dynamic detail page.
+Each workout has its own details page.
 
-The detail page includes:
+The details page includes:
 
-* Workout image
-* Workout name
-* Difficulty
-* Muscle groups
-* Description
-* Duration
-* Calories
-* Sets
-* Reps
-* Equipment
-* Rating
-* Step-by-step instructions
+- Large workout image
+- Workout name
+- Description
+- Muscle groups
+- Equipment
+- Difficulty
+- Sets
+- Reps
+- Duration
+- Calories
+- Rating
+- Step-by-step instructions
 
-### 3. My Plan
+---
 
-Users can create a daily workout plan.
+### 3. Today's Plan
 
-Features include:
+Users can add workouts to Today's Plan.
 
-* Add workout to today's plan
-* Maximum of 5 workouts
-* Remove workouts
-* Mark workouts as completed
-* View workout details
+The My Plan page displays:
+
+- Total exercises
+- Total minutes
+- Total calories
+- Workout cards
+- View Details button
+- Mark as Done button
+- Remove button
+
+When a workout is marked as Done, it is removed from Today's Plan.
+
+---
 
 ### 4. Saved Workouts
 
 Users can save workouts for later.
 
-Saved workouts can be:
+Saved workouts include:
 
-* Viewed
-* Removed
-* Opened through the workout details page
+- View Details
+- Remove
 
-### 5. Workout Statistics
+Saved workouts do not have the Mark as Done option.
 
-The My Plan page automatically calculates:
+---
 
-* Total exercises
-* Total workout minutes
-* Total calories
+### 5. Workout Sorting
 
-### 6. Sorting
+Users can sort their current workout list by:
 
-The workout library can be sorted by:
+- Duration
+- Calories
+- Rating
 
-* Duration
-* Calories
-* Rating
+The sorting system works on both:
 
-### 7. LocalStorage
+- Today's Plan
+- Saved
 
-FitLog uses browser LocalStorage to preserve:
+---
 
-* Today's workout plan
-* Saved workouts
-* Completed workout status
+### 6. LocalStorage
 
-This allows the data to remain available after refreshing the browser.
+FitLog uses browser LocalStorage to keep:
+
+- Today's Plan
+- Saved Workouts
+
+This allows the user's selected workouts to remain available after refreshing the page.
+
+---
+
+### 7. Dynamic Navbar Counters
+
+The Navbar displays live counters for:
+
+- Plan
+- Saved
+
+The counters update when workouts are added or removed.
+
+---
 
 ### 8. Toast Notifications
 
-Users receive feedback when performing actions such as:
+FitLog displays toast notifications for important actions such as:
 
-* Adding a workout
-* Saving a workout
-* Removing a workout
-* Marking a workout as completed
-* Trying to add a duplicate workout
-* Reaching the 5-workout limit
+- Workout added
+- Workout saved
+- Workout completed
+- Workout removed
 
-### 9. Loading State
+---
 
-A loading animation is displayed while workout data is being fetched.
+### 9. Responsive Design
 
-### 10. 404 Page
+The application is responsive and designed to work on:
 
-A custom 404 page is included for:
+- Mobile
+- Tablet
+- Desktop
 
-* Unknown routes
-* Invalid pages
-* Invalid workout URLs
+The workout grid, navigation, hero section, cards, and plan layout adjust according to screen size.
 
-## 🛠️ Technologies Used
+---
 
-* Next.js
-* React
-* JavaScript
-* Tailwind CSS
-* Next.js App Router
-* LocalStorage
-* REST API
-* ESLint
-* Vercel
+### 10. Loading and Error Handling
+
+The application includes loading states while workout data is being loaded.
+
+A custom 404 page is also included for invalid routes.
+
+---
 
 ## 🔗 API
 
-FitLog uses the following workout API:
+FitLog uses the following API:
 
-```text
+### All Workouts
+
 https://api.abcz.workers.dev/api/fitlog
-```
 
-Single workout:
+### Single Workout
 
-```text
 https://api.abcz.workers.dev/api/fitlog/:id
-```
 
-## 📁 Project Structure
+---
+
+## 📂 Project Structure
 
 ```text
-FitLog/
+my-app/
 │
-├── src/
-│   ├── app/
-│   │   ├── layout.js
-│   │   ├── page.js
-│   │   ├── loading.js
-│   │   ├── not-found.js
-│   │   ├── globals.css
-│   │   │
-│   │   ├── my-plan/
-│   │   │   └── page.js
-│   │   │
-│   │   └── workout/
-│   │       └── [id]/
-│   │           └── page.js
+├── app/
+│   ├── layout.js
+│   ├── page.js
+│   ├── globals.css
+│   ├── not-found.js
 │   │
-│   └── components/
-│       ├── Navbar.jsx
-│       ├── Hero.jsx
-│       ├── WorkoutCard.jsx
-│       ├── WorkoutLibrary.jsx
-│       ├── PlanCard.jsx
-│       ├── WorkoutActions.jsx
-│       ├── Toast.jsx
-│       └── Footer.jsx
+│   ├── my-plan/
+│   │   └── page.js
+│   │
+│   └── workout/
+│       └── [id]/
+│           └── page.js
+│
+├── components/
+│   ├── Navbar.jsx
+│   ├── Hero.jsx
+│   ├── WorkoutCard.jsx
+│   ├── PlanCard.jsx
+│   ├── WorkoutActions.jsx
+│   ├── Toast.jsx
+│   └── Footer.jsx
 │
 ├── utils/
 │   ├── api.js
 │   └── storage.js
 │
 ├── public/
+│   ├── logo.svg
+│   └── hero.png
 │
+├── jsconfig.json
 ├── package.json
-├── README.md
-└── ...
-```
-
-## 💻 Getting Started
-
-### 1. Clone the repository
-
-```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-```
-
-### 2. Open the project
-
-```bash
-cd FitLog
-```
-
-### 3. Install dependencies
-
-```bash
-npm install
-```
-
-### 4. Start the development server
-
-```bash
-npm run dev
-```
-
-Open:
-
-```text
-http://localhost:3000
-```
-
-## 🏗️ Production Build
-
-To create a production build:
-
-```bash
-npm run build
-```
-
-To run the production version:
-
-```bash
-npm start
-```
-
-## 📱 Responsive Design
-
-FitLog is designed to work across:
-
-* Mobile devices
-* Tablets
-* Laptops
-* Desktop screens
-
-The workout library uses a responsive grid that adapts to different screen sizes.
-
-## ☁️ Deployment
-
-The project can be deployed using Vercel.
-
-Recommended deployment process:
-
-1. Push the project to GitHub
-2. Import the repository into Vercel
-3. Select Next.js as the framework
-4. Deploy the project
-5. Test all routes after deployment
-
-Important routes to test after deployment:
-
-```text
-/
- /my-plan
- /workout/[id]
-```
-
-Also test an invalid route to verify the custom 404 page.
-
-## 🎯 Project Goals
-
-The main goal of FitLog is to provide a simple and modern workout management experience where users can discover exercises, organize their daily workouts, and track basic workout statistics.
-
-## 👨‍💻 Developer
-
-**Md. Nimul Hasan Nirab**
-
-BSc in Computer Science & Engineering
-
-### Focus Areas
-
-* AI & Prompt Development
-* Web Development
-* Creative Technology
-* UI/UX & Graphic Design
-* Future Cybersecurity Learning
-
-## 📄 License
-
-This project was created as an academic/project assignment and for learning purposes.
+├── next.config.mjs
+└── README.md
