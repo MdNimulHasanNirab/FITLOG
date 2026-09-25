@@ -6,10 +6,11 @@ export default function PlanCard({
   workout,
   onDone,
   onRemove,
+  isSaved = false,
 }) {
   return (
     <div className="bg-zinc-900 rounded-2xl p-4 flex flex-col md:flex-row gap-5 items-center">
-      
+
       {/* Image */}
       <img
         src={workout.image}
@@ -19,6 +20,7 @@ export default function PlanCard({
 
       {/* Information */}
       <div className="flex-1">
+
         <h3 className="text-xl font-bold uppercase">
           {workout.name}
         </h3>
@@ -28,17 +30,25 @@ export default function PlanCard({
         </p>
 
         <div className="flex gap-5 mt-3 text-sm text-gray-300 flex-wrap">
-          <span>⏱ {workout.duration} min</span>
+          <span>
+            ⏱ {workout.duration} min
+          </span>
 
-          <span>🔥 {workout.caloriesBurned} kcal</span>
+          <span>
+            🔥 {workout.caloriesBurned} kcal
+          </span>
 
-          <span>⭐ {workout.rating}</span>
+          <span>
+            ⭐ {workout.rating}
+          </span>
         </div>
+
       </div>
 
-      {/* Actions */}
+      {/* Buttons */}
       <div className="flex gap-2 flex-wrap">
-        
+
+        {/* View Details */}
         <Link
           href={`/workout/${workout.id}`}
           className="bg-lime-400 text-black px-4 py-2 rounded-full text-sm font-semibold"
@@ -46,20 +56,40 @@ export default function PlanCard({
           View Details
         </Link>
 
-        <button
-          onClick={() => onDone(workout)}
-          className="border border-gray-500 px-4 py-2 rounded-full text-sm"
-        >
-          ✓ Done
-        </button>
+        {/* Today's Plan */}
+        {!isSaved && (
+          <>
+            <button
+              type="button"
+              onClick={() => onDone(workout)}
+              className="border border-gray-500 px-4 py-2 rounded-full text-sm hover:bg-lime-400 hover:text-black transition"
+            >
+              ✓ Done
+            </button>
 
-        <button
-          onClick={() => onRemove(workout.id)}
-          className="border border-red-500 text-red-400 px-4 py-2 rounded-full text-sm"
-        >
-          ✕
-        </button>
+            <button
+              type="button"
+              onClick={() => onRemove(workout.id)}
+              className="border border-red-500 text-red-400 px-4 py-2 rounded-full text-sm hover:bg-red-500 hover:text-white transition"
+            >
+              ✕
+            </button>
+          </>
+        )}
+
+        {/* Saved */}
+        {isSaved && (
+          <button
+            type="button"
+            onClick={() => onRemove(workout.id)}
+            className="border border-red-500 text-red-400 px-4 py-2 rounded-full text-sm hover:bg-red-500 hover:text-white transition"
+          >
+            ✕
+          </button>
+        )}
+
       </div>
+
     </div>
   );
 }
