@@ -39,7 +39,10 @@ export default function Toast({ message, type = "success" }) {
             FITLOG
           </p>
 
-            <p className="text-gray-400 text-sm">
+          <p className="text-white text-sm mt-1">
+            {message}
+          </p>
+        </div>
 
       </div>
     </div>
