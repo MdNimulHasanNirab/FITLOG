@@ -1,27 +1,65 @@
-export default function NotFound() {
+"use client";
+
+import Link from "next/link";
+
+export default function PlanCard({
+  workout,
+  onDone,
+  onRemove,
+}) {
   return (
-    <main className="min-h-screen bg-black text-white flex items-center justify-center px-5">
-      <div className="text-center">
+    <div className="bg-zinc-900 rounded-2xl p-4 flex flex-col md:flex-row gap-5 items-center">
+      
+      {/* Image */}
+      <img
+        src={workout.image}
+        alt={workout.name}
+        className="w-32 h-32 rounded-xl object-cover"
+      />
 
-        <p className="text-lime-400 font-semibold">
-          FITLOG
+      {/* Information */}
+      <div className="flex-1">
+        <h3 className="text-xl font-bold uppercase">
+          {workout.name}
+        </h3>
+
+        <p className="text-gray-400 mt-1">
+          {workout.equipment}
         </p>
 
-        <h1 className="text-7xl md:text-9xl font-bold mt-4">
-          404
-        </h1>
+        <div className="flex gap-5 mt-3 text-sm text-gray-300 flex-wrap">
+          <span>⏱ {workout.duration} min</span>
 
-        <h2 className="text-2xl md:text-3xl font-bold uppercase mt-4">
-          Page Not Found
-        </h2>
+          <span>🔥 {workout.caloriesBurned} kcal</span>
 
-        <p className="text-gray-400 mt-3">
-          The workout or page you are looking for does not exist.
-        </p>
-
-       
-
+          <span>⭐ {workout.rating}</span>
+        </div>
       </div>
-    </main>
+
+      {/* Actions */}
+      <div className="flex gap-2 flex-wrap">
+        
+        <Link
+          href={`/workout/${workout.id}`}
+          className="bg-lime-400 text-black px-4 py-2 rounded-full text-sm font-semibold"
+        >
+          View Details
+        </Link>
+
+        <button
+          onClick={() => onDone(workout)}
+          className="border border-gray-500 px-4 py-2 rounded-full text-sm"
+        >
+          ✓ Done
+        </button>
+
+        <button
+          onClick={() => onRemove(workout.id)}
+          className="border border-red-500 text-red-400 px-4 py-2 rounded-full text-sm"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
   );
 }
