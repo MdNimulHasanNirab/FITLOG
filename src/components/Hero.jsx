@@ -4,9 +4,7 @@ export default function Hero() {
   return (
     <section className="max-w-7xl mx-auto px-5 py-16 grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <p className="text-lime-400 uppercase tracking-widest text-sm">
-          Workout Library
-        </p>
+        
 
         <h1 className="text-5xl md:text-7xl font-bold uppercase leading-tight mt-4">
           Train With Intent. Log Every Set.
