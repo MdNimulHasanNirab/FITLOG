@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.abcz.workers.dev/api/fitlog";
+const BASE_URL = "https://api.api-store.workers.dev/api/fitlog";
 
 export async function getWorkouts() {
   const res = await fetch(BASE_URL, {
